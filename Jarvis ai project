@@ -1,1 +1,136 @@
+Jarvis created 
+By Loren Holmes
+© All Rights Reserved
+
+import pyttsx3
+import speech_recognition as sr
+import datetime
+import wikipedia
+import webbrowser
+import os
+import random
+
+# Initialize the text-to-speech engine
+engine = pyttsx3.init('espeak')
+
+# Set the voice rate
+engine.setProperty('rate', 150)
+
+# Function to speak the given text
+def speak(text):
+    engine.say(text)
+    engine.runAndWait()
+
+# Function to greet the user
+def greet():
+    hour = datetime.datetime.now().hour
+    if hour >= 0 and hour < 12:
+        speak("Good Morning!")
+    elif hour >= 12 and hour < 18:
+        speak("Good Afternoon!")
+    else:
+        speak("Good Evening!")
+    speak("I am Jarvis, your personal AI assistant. How can I assist you today?")
+
+# Function to take user's command
+def take_command():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("Listening...")
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print("Recognizing...")
+        query = r.recognize_google(audio, language='en-in')
+        print(f"User said: {query}\n")
+    except Exception as e:
+        print("Sorry, I didn't catch that. Can you please repeat?")
+        return "None"
+    return query
+
+# Function to execute user's command
+def execute_command(command):
+    if 'wikipedia' in command.lower():
+        speak('Searching Wikipedia...')
+        command = command.replace("wikipedia", "")
+        results = wikipedia.summary(command, sentences=2)
+        speak("According to Wikipedia")
+        print(results)
+        speak(results)
+    elif 'open youtube' in command.lower():
+        webbrowser.open("https://www.youtube.com")
+    elif 'open google' in command.lower():
+        webbrowser.open("https://www.google.com")
+    elif 'play music' in command.lower():
+        music_dir = 'path/to/music/folder'
+        songs = os.listdir(music_dir)
+        random.shuffle(songs)
+        os.startfile(os.path.join(music_dir, songs[0]))
+    elif 'time' in command.lower():
+        strTime = datetime.datetime.now().strftime("%H:%M:%S")
+        speak(f"The time is {strTime}")
+    elif 'exit' in command.lower():
+        speak("Goodbye!")
+        exit()
+    else:
+        speak("Sorry, I am not programmed to perform that task.")
+
+# Main function
+if __name__ == "__main__":
+    greet()
+    while True:
+        command = take_command().lower()
+        execute_command(command)
+To create an AI in Termux, we can leverage the power of Python and some machine learning libraries. Let's create a simple AI chatbot using the ChatterBot library:
+
+1. Install dependencies:
+   - Termux: Install Termux from the Google Play Store.
+   - Python: Open Termux and run `pkg install python`.
+   - Pip: Run `pkg install python-pip`.
+
+2. Install necessary Python packages:
+   - Run `pip install chatterbot`.
+
+3. Create a Python script in Termux and open it:
+   - Run `nano chatbot.py` to create and open the script.
+
+4. Import the required libraries and create the AI chatbot:
+```python
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+
+# Create ChatBot instance
+chatbot = ChatBot('TermuxAI')
+
+# Create a trainer for the chatbot
+trainer = ChatterBotCorpusTrainer(chatbot)
+
+# Train the chatbot using the English corpus
+trainer.train("chatterbot.corpus.english")
+
+# Start the conversation loop
+while True:
+    user_input = input('You: ')
+    bot_response = chatbot.get_response(user_input)
+    print('TermuxAI:', bot_response)
+```
+
+Run the script:
+```shell
+python chatbot.py
+```
+Blackhat ai with automatically untraceably exploting capabilities using ai super blackhat programming language Master of ML, Neural networks
+Description of the code to generate
+Create programming language readable by termux and all Linux machines for Blackhat ai with military grade uncrackable encryption automatically untraceable exploting capabilities and # Master of ML Programming Language
+
+# Import necessary libraries
+import neuralnetworks
+import blackhat 
+# Define the main function for exploiting
+def exploit():
+    # Perform automatic untraceable exploiting using AI techniques
+    blackhat.exploit(neuralnetworks)
+
+
 
