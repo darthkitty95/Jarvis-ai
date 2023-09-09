@@ -1,7 +1,6 @@
 Jarvis created 
 By Loren Holmes
 © All Rights Reserved
-
 import pyttsx3
 import speech_recognition as sr
 import datetime
@@ -9,18 +8,22 @@ import wikipedia
 import webbrowser
 import os
 import random
-
+pip install --upgrade pyttsx3 speechrecognition
+import pyttsx3
 # Initialize the text-to-speech engine
-engine = pyttsx3.init('espeak')
-
+engine = pyttsx3.init()
+import pyttsx3
+# Initialize the text-to-speech engine
+engine = pyttsx3.init()
 # Set the voice rate
 engine.setProperty('rate', 150)
-
+import pyttsx3
 # Function to speak the given text
 def speak(text):
+    engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
-
+import datetime
 # Function to greet the user
 def greet():
     hour = datetime.datetime.now().hour
@@ -31,7 +34,12 @@ def greet():
     else:
         speak("Good Evening!")
     speak("I am Jarvis, your personal AI assistant. How can I assist you today?")
-
+# Function to speak the message
+def speak(message):
+    print(message)
+# Call the greet() function
+greet()
+import speech_recognition as sr
 # Function to take user's command
 def take_command():
     r = sr.Recognizer()
@@ -39,16 +47,16 @@ def take_command():
         print("Listening...")
         r.pause_threshold = 1
         audio = r.listen(source)
-
+def recognize_speech(audio):
     try:
         print("Recognizing...")
         query = r.recognize_google(audio, language='en-in')
         print(f"User said: {query}\n")
+        return query
     except Exception as e:
         print("Sorry, I didn't catch that. Can you please repeat?")
         return "None"
-    return query
-
+import wikipedia
 # Function to execute user's command
 def execute_command(command):
     if 'wikipedia' in command.lower():
@@ -75,62 +83,30 @@ def execute_command(command):
         exit()
     else:
         speak("Sorry, I am not programmed to perform that task.")
-
 # Main function
 if __name__ == "__main__":
     greet()
     while True:
         command = take_command().lower()
         execute_command(command)
-To create an AI in Termux, we can leverage the power of Python and some machine learning libraries. Let's create a simple AI chatbot using the ChatterBot library:
-
-1. Install dependencies:
-   - Termux: Install Termux from the Google Play Store.
-   - Python: Open Termux and run `pkg install python`.
-   - Pip: Run `pkg install python-pip`.
-
-2. Install necessary Python packages:
-   - Run `pip install chatterbot`.
-
-3. Create a Python script in Termux and open it:
-   - Run `nano chatbot.py` to create and open the script.
-
-4. Import the required libraries and create the AI chatbot:
-```python
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
-
 # Create ChatBot instance
 chatbot = ChatBot('TermuxAI')
-
 # Create a trainer for the chatbot
 trainer = ChatterBotCorpusTrainer(chatbot)
-
 # Train the chatbot using the English corpus
 trainer.train("chatterbot.corpus.english")
-
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+# Create ChatBot instance
+chatbot = ChatBot('TermuxAI')
+# Create a trainer for the chatbot
+trainer = ChatterBotCorpusTrainer(chatbot)
+# Train the chatbot using the English corpus
+trainer.train("chatterbot.corpus.english")
 # Start the conversation loop
 while True:
     user_input = input('You: ')
     bot_response = chatbot.get_response(user_input)
     print('TermuxAI:', bot_response)
-```
-
-Run the script:
-```shell
-python chatbot.py
-```
-Blackhat ai with automatically untraceably exploting capabilities using ai super blackhat programming language Master of ML, Neural networks
-Description of the code to generate
-Create programming language readable by termux and all Linux machines for Blackhat ai with military grade uncrackable encryption automatically untraceable exploting capabilities and # Master of ML Programming Language
-
-# Import necessary libraries
-import neuralnetworks
-import blackhat 
-# Define the main function for exploiting
-def exploit():
-    # Perform automatic untraceable exploiting using AI techniques
-    blackhat.exploit(neuralnetworks)
-
-
-
